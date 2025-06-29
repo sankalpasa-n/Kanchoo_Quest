@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Birthday Quest for Kanchoo 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #8e44ad, #c0392b);
+      color: #fff0f6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+      animation: fadeIn 1.5s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .card {
+      background: #2c2c54;
+      border-radius: 20px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+      max-width: 600px;
+      width: 100%;
+      padding: 2rem;
+      text-align: center;
+      margin-top: 1rem;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      color: #ffccf9;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      background: #f368e0;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+    button:hover {
+      background: #ff6b81;
+      transform: scale(1.05);
+    }
+    .hidden {
+      display: none;
+    }
+    .sticker {
+      width: 80px;
+      animation: bounce 2s infinite;
+      margin-bottom: 1rem;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .anime-gift {
+      margin-top: 1rem;
+    }
+    .love-picture {
+      margin-top: 1rem;
+      width: 100%;
+      border-radius: 12px;
+    }
+  </style>
+</head>
+<body>
+  <audio id="clickSound" src="https://cdn.pixabay.com/audio/2022/03/15/audio_31558c1fdc.mp3"></audio>
+
+  <div class="card" id="card1">
+    <img src="https://media.giphy.com/media/5GoVLqeAOo6PK/giphy.gif" alt="sticker" class="sticker">
+    <h1>🎮 Welcome to Birthday Quest! Kanchoo🎂</h1>
+    <p> Kanchoo, you've entered a magical land where your heart leads the way. 💖</p>
+    <p>Your mission? Unlock joy, laughter, and love—hidden behind enchanted choices. ✨</p>
+    <button onclick="playClick(); showNextCard()">Begin Your Journey 🗺️</button>
+  </div>
+
+  <div class="card hidden" id="card2">
+    <img src="https://media.giphy.com/media/l0MYwONBGDS7aPGOk/giphy.gif" alt="sticker" class="sticker">
+    <h1>🎯 Choose Your Path</h1>
+    <p>Will you follow the road of memories, uncover a surprise, or walk the path of forgiveness?</p>
+    <button onclick="playClick(); showMemoryLane()">💞 Memory Lane</button>
+    <button onclick="playClick(); showMysteryGift()">🎁 Mystery Surprise</button>
+    <button onclick="playClick(); showForgiveness()">🌧️ Forgiveness Path</button>
+  </div>
+
+  <div class="card hidden" id="memoryLane">
+    <img src="https://media.giphy.com/media/xUPGcEliCc7bETyfO8/giphy.gif" alt="sticker" class="sticker">
+    <h1>📜 Memory Lane</h1>
+    <p>You’ve chosen the path of nostalgia. Prepare for smiles and a warm heart! 🥰</p>
+    <p>There are a lot of memories in these past 2 years that we have made. That memories has been kept with me in the bottom of my heart. I am unable to show those memories here but will surely make more memories with you in the future. 💑</p>
+    <button onclick="playClick(); endMessage('memories')">Unlock Final Treasure 💌</button>
+  </div>
+
+  <div class="card hidden" id="mysteryGift">
+    <img src="https://media.giphy.com/media/3o7abB06u9bNzA8lu8/giphy.gif" alt="sticker" class="sticker">
+    <h1>🎁 Mystery Surprise</h1>
+    <p>You chose the unexpected path, and with that, comes something truly magical. ✨</p>
+    <p>Sometimes, love is found not in memories, but in the surprises we create together. This surprise was wrapped in giggles, kisses, and late-night dreams. 💞</p>
+    <div class="anime-gift">
+      <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="funny mystery animation" class="love-picture">
+    </div>
+    <button onclick="playClick(); endMessage('mystery')">Reveal the Treasure 💝</button>
+  </div>
+
+  <div class="card hidden" id="forgivenessCard">
+    <img src="https://media.giphy.com/media/l0MYB8Ory7Hqefo9a/giphy.gif" alt="sticker" class="sticker">
+    <img src="https://media1.tenor.com/m/N4a4SAa0qtsAAAAd/sorry-sad.gif" alt="funny apology gif" class="love-picture">
+    <h1>💌 Forgiveness Path</h1>
+    <p>Kanchoo, I know I haven’t always been perfect… or the person you hoped for. I’ve hurt you more than any of your past boyfriends, said things I regret deeply, and left wounds I wish I could take back. 💔</p>
+    <p>But deep inside, I truly, truly loved you—and still do—with everything I have. I care for you more than words can express.</p>
+    <p>I can confidently say this: I have loved, and will continue to love you more than anyone ever has. More than any of the people who came before me. ❤️</p>
+    <p>I'm sorry for all the mistakes I’ve made and for every hurtful word I’ve spoken. And yet, through it all, you still loved me back. Thank you, Kanchooo… from the bottom of my heart. ❤️❤️</p>
+    <button onclick="playClick(); endMessage('forgiveness')">Receive My Apology 🤍</button>
+  </div>
+
+  <div class="card hidden" id="finalMessage">
+    <img src="https://media.giphy.com/media/QBd2kLB5qDmysEXre9/giphy.gif" alt="sticker" class="sticker">
+    <h1 id="finalTitle">🏆 Congratulations, Hero of My Heart</h1>
+    <p id="finalText">Dear Kanchoo, you've completed your quest! And your prize? Endless love, smiles, and a lifetime of goofy, sweet memories with me. 💕</p>
+    <p>May your dreams soar, your heart glow, and your laughter echo always. 🎉</p>
+    <p>Happy Birthday, my everything. 🎈</p>
+  </div>
+
+  <script>
+    function playClick() {
+      document.getElementById('clickSound').play();
+    }
+
+    function showNextCard() {
+      document.getElementById('card1').classList.add('hidden');
+      document.getElementById('card2').classList.remove('hidden');
+    }
+
+    function showMemoryLane() {
+      document.getElementById('card2').classList.add('hidden');
+      document.getElementById('memoryLane').classList.remove('hidden');
+    }
+
+    function showMysteryGift() {
+      document.getElementById('card2').classList.add('hidden');
+      document.getElementById('mysteryGift').classList.remove('hidden');
+    }
+
+    function showForgiveness() {
+      document.getElementById('card2').classList.add('hidden');
+      document.getElementById('forgivenessCard').classList.remove('hidden');
+    }
+
+    function endMessage(path) {
+      document.querySelectorAll('.card').forEach(card => card.classList.add('hidden'));
+      document.getElementById('finalMessage').classList.remove('hidden');
+
+      if (path === 'mystery') {
+        document.getElementById('finalTitle').textContent = '🎊 Surprise Unwrapped with Love';
+        document.getElementById('finalText').innerHTML =
+          'Kanchoo, the best gifts are the ones that come from the heart. And today, this little surprise is my way of telling you how endlessly you’re loved. From the sparkle in your eyes to the warmth of your smile—every bit of you is magic to me. 💫💗';
+      } else if (path === 'forgiveness') {
+        document.getElementById('finalTitle').textContent = '🌈 A Heart Healing Moment';
+        document.getElementById('finalText').innerHTML =
+          'Thank you, Kanchoo, for hearing my heart. For every mistake I’ve made, I promise to learn, to grow, and to never stop choosing you. Your forgiveness means the world to me, and I’ll treasure it always. 🕊️💞';
+      } else {
+        document.getElementById('finalTitle').textContent = '🏆 Congratulations, Hero of My Heart';
+        document.getElementById('finalText').innerHTML =
+          "Dear Kanchoo, you've completed your quest! And your prize? Endless love, smiles, and a lifetime of goofy, sweet memories with me. 💕";
+      }
+    }
+  </script>
+</body>
+</html>
